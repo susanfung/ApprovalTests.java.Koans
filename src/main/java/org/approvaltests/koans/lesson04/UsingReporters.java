@@ -69,7 +69,7 @@ public class UsingReporters extends Koans
   @UseReporter(ImageWebReporter.class)
   public void UsingImageForInsight() throws Exception
   {
-    String whatWasTheOldColor = ___;
+    String whatWasTheOldColor = "blue";
     if (!decode("Ycl\\").equals(whatWasTheOldColor.toLowerCase()))
     {
       ApprovalFailureReporter reporter = ReporterFactory.get();

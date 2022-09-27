@@ -30,31 +30,31 @@ public class GettingStarted extends Koans
   @Test
   public void normalJunitAsserts()
   {
-    assertEquals("Small String", ___);
+    assertEquals("Small String", "Small String");
   }
 
   @Test
   public void assertAgainstFileContents()
   {
-    FileAssert.verifyContentsIsEqual("expected.txt", ___);
+    FileAssert.verifyContentsIsEqual("expected.txt", "Small String");
   }
 
   @Test
   public void usingAutomaticFileNames()
   {
     ApprovalNamer namer = Approvals.createApprovalNamer();
-    FileAssert.verifyContentsIsEqual(namer.getApprovalName() + ".txt", ___);
+    FileAssert.verifyContentsIsEqual(namer.getApprovalName() + ".txt", "Prefer Convention over Configuration");
   }
 
   @Test
   public void automaticallyGeneratedNames()
   {
     ApprovalNamer namer = Approvals.createApprovalNamer();
-    assertEquals(namer.getApprovalName(), ___);
+    assertEquals(namer.getApprovalName(), "GettingStarted.automaticallyGeneratedNames");
   }
 
   @Test
-  public void ___()
+  public void usesMethodName()
   {
     ApprovalNamer namer = Approvals.createApprovalNamer();
     assertEquals("GettingStarted.usesMethodName", namer.getApprovalName());
@@ -64,7 +64,7 @@ public class GettingStarted extends Koans
   public void fileNames()
   {
     ApprovalNamer namer = Approvals.createApprovalNamer();
-    String className = ___;
+    String className = "GettingStarted";
     String methodName = "fileNames";
     String approvalName = className + "." + methodName;
     assertEquals(namer.getApprovalName(), approvalName);
@@ -75,7 +75,7 @@ public class GettingStarted extends Koans
   {
     Rectangle r = new Rectangle();
     r.width = 40;
-    r.height = ____;
+    r.height = 189;
     r.x = 136;
     r.y = 200;
     ApprovalNamer namer = Approvals.createApprovalNamer();
@@ -85,7 +85,7 @@ public class GettingStarted extends Koans
   @Test
   public void approvalsUsesThisFileNameConvention()
   {
-    Approvals.verify(___);
+    Approvals.verify("This is in the approved file");
     // Hint: If you double-click the 1st line of the Failure Trace a diff tool will open
   }
 
@@ -94,7 +94,7 @@ public class GettingStarted extends Koans
   public void seeingFilesSideBySide()
   {
     ApprovalNamer namer = Approvals.createApprovalNamer();
-    Approvals.verify(___ + "\r\n" + namer.getApprovalName());
+    Approvals.verify("This file is called" + "\r\n" + namer.getApprovalName());
   }
 
   @Test
@@ -110,7 +110,7 @@ public class GettingStarted extends Koans
     Rectangle r = new Rectangle();
     r.width = 40;
     r.height = 100;
-    r.x = ____;
+    r.x = 150;
     r.y = 200;
     Approvals.verify(r);
   }
@@ -120,7 +120,7 @@ public class GettingStarted extends Koans
   {
     Person p = new Person("jayne", "cobb", true, 38);
     String format = "Person\n  FirstName:%s\n  LastName:%s\n  Sex:%s\n  Age:%s\n";
-    String custom = String.format(format, p.getFirstName(), ___, p.isMale() ? "Male" : "Female", p.getAge());
+    String custom = String.format(format, p.getFirstName(), p.getLastName(), p.isMale() ? "Male" : "Female", p.getAge());
     Approvals.verify(custom);
   }
 }
